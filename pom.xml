@@ -22,10 +22,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+	
+	 <!-- Web dependencies -->
+    <webjars-bootstrap.version>3.3.6</webjars-bootstrap.version>
+    <webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
+    <webjars-jquery.version>2.2.4</webjars-jquery.version>
+    <wro4j.version>1.8.0</wro4j.version>
+	
 	</properties>
+	
+	
 
 	<dependencies>
 	
+	<!-- 
 	<dependency>
           <groupId>org.springframework.cloud</groupId>
           <artifactId>spring-cloud-gcp-dependencies</artifactId>
@@ -34,19 +44,22 @@
           <scope>import</scope>
           </dependency>
           
-           <!-- To get proper log entries, you must exclude the jul-to-slf4j artifact by marking it as provided. -->    
+      -->       <!-- To get proper log entries, you must exclude the jul-to-slf4j artifact by marking it as provided. -->    
           <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>jul-to-slf4j</artifactId>
       <scope>provided</scope>
     </dependency>
     
+    <!--  
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-gcp-starter-sql-mysql</artifactId>
         <version>1.1.0.M2</version>
       </dependency>
+	-->
 	
+	<!-- 
 	<dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -57,6 +70,13 @@
         </exclusion>
       </exclusions>
     </dependency>
+    
+     -->
+     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
+     
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -73,11 +93,7 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+		
 		
 		<!-- Databases - Uses HSQL by default -->
     <dependency>
@@ -109,25 +125,82 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
+    
+    <dependency>
+		<groupId>org.thymeleaf.extras</groupId>
+		<artifactId>thymeleaf-extras-springsecurity4</artifactId>	
+		<version>2.1.2.RELEASE</version>
+  	</dependency>
+    
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
     
+<!-- webjars -->
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>webjars-locator-core</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>jquery</artifactId>
+      <version>${webjars-jquery.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>jquery-ui</artifactId>
+      <version>${webjars-jquery-ui.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>bootstrap</artifactId>
+      <version>${webjars-bootstrap.version}</version>
+    </dependency>
+    <!-- end of webjars -->
+	
+	<dependency>
+		<groupId>org.webjars</groupId>
+		<artifactId>webjars-locator-core</artifactId>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-security</artifactId>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.security.oauth.boot</groupId>
+		<artifactId>spring-security-oauth2-autoconfigure</artifactId>
+		<version>2.0.0.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>js-cookie</artifactId>
+    <version>2.1.0</version>
+</dependency>
+    
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
+				<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+		<!--  
 		<plugin>
         	<groupId>com.google.appengine</groupId>
         	<artifactId>appengine-maven-plugin</artifactId>
         	<version>1.9.60</version>
       </plugin>
+      
+      -->
 		</plugins>
 	</build>
 
