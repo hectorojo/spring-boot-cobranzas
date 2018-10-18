@@ -25,6 +25,28 @@
 	</properties>
 
 	<dependencies>
+	
+	<dependency>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-gcp-dependencies</artifactId>
+          <version>1.0.0.RC1</version>
+          <type>pom</type>
+          <scope>import</scope>
+          </dependency>
+          
+           <!-- To get proper log entries, you must exclude the jul-to-slf4j artifact by marking it as provided. -->    
+          <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jul-to-slf4j</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-gcp-starter-sql-mysql</artifactId>
+        <version>1.1.0.M2</version>
+      </dependency>
+	
 	<dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -46,7 +68,6 @@
       <artifactId>jul-to-slf4j</artifactId>
       <scope>provided</scope>
     </dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -57,6 +78,43 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- Databases - Uses HSQL by default -->
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    
+    <!-- Spring and Spring Boot dependencies -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-cache</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
 	</dependencies>
 
 	<build>
@@ -73,5 +131,13 @@
 		</plugins>
 	</build>
 
+<repositories>
+      <!-- Use Spring Milestone Repository -->
+      <repository>
+        <id>repository.spring.milestone</id>
+        <name>Spring Milestones Repository</name>
+        <url>http://repo.spring.io/milestone</url>
+      </repository>
+    </repositories>
 
 </project>
