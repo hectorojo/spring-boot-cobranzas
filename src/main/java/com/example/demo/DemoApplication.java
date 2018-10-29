@@ -23,10 +23,10 @@ public class DemoApplication extends WebSecurityConfigurerAdapter {
     http
       .antMatcher("/**")
       .authorizeRequests()
-        .antMatchers("/", "/login**", "/webjars/**", "/error**")
+        .antMatchers("/", "/user","/login**", "/webjars/**", "/error**")
         .permitAll()
-      .anyRequest()
-        .authenticated().and().logout().logoutSuccessUrl("/").permitAll().and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+      .anyRequest().
+    authenticated().and().logout().logoutSuccessUrl("/").permitAll().and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
   }
   
  
